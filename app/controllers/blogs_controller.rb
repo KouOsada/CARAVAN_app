@@ -6,6 +6,8 @@ class BlogsController < ApplicationController
 
   def index
     @blogs = Blog.all
+    p "標準出力にのみ反映"
+    logger.debug("標準出力とログファイルに記録される")
   end
 
   def new
@@ -14,6 +16,7 @@ class BlogsController < ApplicationController
 
   def create
     @blog = Blog.new(blog_params)
+    # binding.pry
     if @blog.save
       redirect_to blog_path(@blog.id)
     else
@@ -39,7 +42,7 @@ class BlogsController < ApplicationController
 
   private
   def blog_params
-    params.require(:blog).permit(:title, :categoly, :body)
+    params.require(:blog).permit(:title, :category, :body)
   end
 
 end
