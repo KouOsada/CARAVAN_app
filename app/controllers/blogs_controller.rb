@@ -1,13 +1,18 @@
 class BlogsController < ApplicationController
-  def index
+  
+  def show
   end
 
-  def show
+  def index
   end
 
   def new
   end
+  
+  def create
+  end
 
   def edit
   end
+  
 end
